@@ -7,5 +7,9 @@ The only pre-requisite is that you have *java 1.8* installed already. If you don
 
 # On your internet connected \*nix server
 -`git clone https://github.com/derplarsen/confluentNoInternet.git`
+
 -`cd confluentNoInternet/`
+
 -`chmod +x *.sh`
+
+-`./runOnInternetClient.sh`
