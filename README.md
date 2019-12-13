@@ -74,6 +74,38 @@ Then run the following to enable, start and check on the kafka broker service:
 
 `sudo systemctl status confluent-server`
 
+# Kafka Connect
+
+First look at the properties file:  `sudo vi /etc/kafka/connect-distributed.properties`. There is probably nothing to edit here as the rpm has already created the java plugin folder and put a lot of connector jars in there.
+
+`sudo systemctl enable confluent-kafka-connect`
+
+`sudo systemctl start confluent-kafka-connect`
+
+`sudo systemctl status confluent-kafka-connect`
+
+# KSQL
+
+By default you don't need to change anything for KSQL. 
+
+`sudo systemctl enable confluent-ksql`
+
+`sudo systemctl start confluent-ksql`
+
+`sudo systemctl status confluent-ksql`
+
+# REST Proxy
+
+By default you don't need to change anything for Rest Proxy. 
+
+`sudo systemctl enable confluent-kafka-rest`
+
+`sudo systemctl start confluent-kafka-rest`
+
+`sudo systemctl status confluent-kafka-rest`
+
+# Control Center
+
 Then for the Control Center, first edit the following properties file:
 `sudo vi /etc/confluent-control-center/control-center-production.properties`
 
