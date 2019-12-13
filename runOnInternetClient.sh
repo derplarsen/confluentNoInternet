@@ -7,4 +7,4 @@ read -p 'Would you like to compress and bundle into one file? [y/n]' compressYN
 if [ $compressYN == "y" ]; then tar -cvf ./confluent-rpms.tar ./packages; tar -rf confluent-rpms.tar ./runOnTargetServer.sh; gzip ./confluent-rpms.tar; fi
 echo 'Packages Compressed into confluent-rpms.tar.gz'
 
-echo 'Now, take this confluent-rpms.tar.gz and put them on your server without internet access and extract. Then run ---> "runOnTargetServer.sh" <---'
+echo 'Now, take this confluent-rpms.tar.gz and put them on your server without internet access and extract. Then run -> "runOnTargetServer.sh" <- on the server where you're installing'
