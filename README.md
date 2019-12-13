@@ -1,5 +1,5 @@
 # confluentNoInternet
-This is a repo to help install Confluent Platform on a RedHat server which doesn't have connection to the internet.
+This is a repo to help install Confluent Platform on a RedHat server which doesn't have connection to the internet. It installs all packages and assumes that you want all of the components on one box. If you want are installing individual components on individual VMs, single out the particular RPM you want on that node and edit the properties file(s) as appropriate.
 
 It also assumed that the target machine is RHEL and it does not need yum.
 
