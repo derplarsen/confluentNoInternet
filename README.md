@@ -8,6 +8,7 @@ The only pre-requisite is that you have *java 1.8* installed already. If you don
 # On your internet connected \*nix server
 
 Clone this repo
+
 ```git clone https://github.com/derplarsen/confluentNoInternet.git```
 
 Enter the directory that's been cloned:
@@ -15,6 +16,7 @@ Enter the directory that's been cloned:
 ```cd confluentNoInternet/```
 
 Make the shell scripts executable:
+
 ```chmod +x *.sh```
 
 Run the first script:
