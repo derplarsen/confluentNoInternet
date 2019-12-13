@@ -22,3 +22,54 @@ Make the shell scripts executable:
 Run the first script:
 
 ```./runOnInternetClient.sh```
+
+# On your non-internet connected server instance
+
+*(Again, this requires Java 1.8 to be installed and that it is a RHEL / centos server.)*
+
+Copy the confluent-packages.tar.gz file from the previous set of steps over to the target server
+
+Run the following from in the directory you copied the file to:
+
+`tar zxvf confluent-packages.tar.gz`
+
+You will see that a "packages" directory was created and inside are all of the rpms. Also, a script called "runOnTargetServer.sh" now exists in the current directory. Run that -
+
+`./runOnTargetServer.sh`
+
+This will install all of the rpms from inside the packages folder.
+
+After the packages are installed, follow the the steps starting at the zookeeper section:
+
+https://docs.confluent.io/current/installation/installing_cp/rhel-centos.html#systemd-rhel-centos-install
+
+# Zookeeper Configuration / Starting
+
+Since this is a single node, you don't need to make any changes to zookeeper configuration properties file
+
+`systemctl enable confluent-zookeeper`
+`systemctl start confluent-zookeeper`
+`systemctl status confluent-zookeeper`
+
+# Kafka Configuration / Starting
+
+First, get the hostname of the server. If it's something that is not resolvable, create a hosts file entry or an entry in DNS and ensure it is reachable from a client and itself. 
+
+Then open /etc/kafka/server.properties and down a little bit will be the "advertised.listeners" property. Uncomment that and change the "your.host.name" fqdn to what you created in your /etc/hosts file for the reachable IP address of the broker/server.
+
+Uncomment the following lines:
+
+`metric.reporters=io.confluent.metrics.reporter.ConfluentMetricsReporter`
+
+`confluent.metrics.reporter.bootstrap.servers=localhost:9092`
+
+`confluent.metrics.reporter.topic.replicas=1`
+
+
+Then run the following to enable, start and check on the kafka broker service:
+
+`sudo systemctl enable confluent-server`
+
+`sudo systemctl start confluent-server`
+
+`sudo systemctl status confluent-server`
