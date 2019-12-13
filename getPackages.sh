@@ -6,6 +6,7 @@ KAFKA_VERSION='2.12'
 mkdir packages
 wget $BASE_URL/confluent-common-$CONFLUENT_VERSION.noarch.rpm --directory-prefix=./packages
 wget $BASE_URL/confluent-control-center-$CONFLUENT_VERSION.noarch.rpm --directory-prefix=./packages
+wget $BASE_URL/confluent-control-center-fe-$CONFLUENT_VERSION.noarch.rpm --directory-prefix=./packages
 wget $BASE_URL/confluent-hub-client-$CONFLUENT_VERSION.noarch.rpm --directory-prefix=./packages
 wget $BASE_URL/confluent-kafka-connect-elasticsearch-$CONFLUENT_VERSION.noarch.rpm --directory-prefix=./packages
 wget $BASE_URL/confluent-kafka-connect-jdbc-$CONFLUENT_VERSION.noarch.rpm --directory-prefix=./packages
