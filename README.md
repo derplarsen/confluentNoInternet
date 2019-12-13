@@ -39,7 +39,7 @@ You will see that a "packages" directory was created and inside are all of the r
 
 This will install all of the rpms from inside the packages folder.
 
-After the packages are installed, follow the the steps starting at the zookeeper section:
+After the packages are installed, the following steps should be performed for a single node POC install.. they are selectively lifted from this reference document:
 
 https://docs.confluent.io/current/installation/installing_cp/rhel-centos.html#systemd-rhel-centos-install
 
@@ -73,3 +73,24 @@ Then run the following to enable, start and check on the kafka broker service:
 `sudo systemctl start confluent-server`
 
 `sudo systemctl status confluent-server`
+
+Then for the Control Center, first edit the following properties file:
+`sudo vi /etc/confluent-control-center/control-center-production.properties`
+
+Change Connect, KSQL, and Schema Registry host names to `localhost` instead of their existing hostnames.
+
+Set `confluent.controlcenter.internal.topics.replication` to 1
+
+Set `confluent.controlcenter.command.topic.replication` to 1
+
+Set `confluent.monitoring.interceptor.topic.replication` to 1
+
+Set `confluent.metrics.topic.replication` to 1
+
+Then run the following to enable and start
+
+`sudo systemctl enable confluent-control-center`
+
+`sudo systemctl start confluent-control-center`
+
+`sudo systemctl status confluent-control-center`
