@@ -48,7 +48,9 @@ https://docs.confluent.io/current/installation/installing_cp/rhel-centos.html#sy
 Since this is a single node, you don't need to make any changes to zookeeper configuration properties file
 
 `systemctl enable confluent-zookeeper`
+
 `systemctl start confluent-zookeeper`
+
 `systemctl status confluent-zookeeper`
 
 # Kafka Configuration / Starting
