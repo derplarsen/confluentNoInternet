@@ -88,7 +88,11 @@ First look at the properties file:  `sudo vi /etc/kafka/connect-distributed.prop
 
 # KSQL
 
-By default you don't need to change anything for KSQL. 
+By default you don't need to change properties for KSQL, but you do want to create a directory first and give it proper permissions.
+
+`sudo mkdir /var/lib/kafka-streams`
+
+`sudo chown cp-ksql -R /var/lib/kafka-streams`
 
 `sudo systemctl enable confluent-ksql`
 
